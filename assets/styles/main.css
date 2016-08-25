@@ -1,0 +1,68 @@
+body {
+	background-color: #81F79F;
+}
+
+#dataColumn {
+	margin: 0 auto;
+	margin-top: 5%;
+}
+
+/*begin buttons*/
+.buttonContainer {
+	display: block;
+	float: left;
+	width: 12%;
+	height: 5%;
+}
+
+button {
+	margin-top: 0%;
+	margin-top: 15%;
+	background-color: #FFFAAA;
+	border-radius: 2px;
+	border-width: 2px;
+	border-color: blue;
+	padding: 2px;
+}
+
+button:hover {
+	background-color: #FFFAAA;
+}
+/*end buttons*/
+
+.getButton:hover {
+	background-color: #FFFAFF;
+}
+/*begin fixed menu*/
+nav {
+	position: fixed;
+	width: 98%;
+	z-index: 1;
+	top: 0px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #00bcd4;
+}
+
+li {
+	margin-left: 17.5%;
+	display: inline-block;
+}
+
+li a {
+    display: block;			/*block respeta margin o paddings, heigth o width, inline no*/
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: white;
+    color: #00BDFF;
+}
+/*end fixed menu*/

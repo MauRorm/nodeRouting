@@ -6,13 +6,20 @@
  */
 'use strict';
 
+var HttpRequest = require('./HTTPRequest');
+
 var dataReport = {
   run: function (req, res, values) {
   	try {
-  	  if (typeof values === 'undefined') {
+      this.values = values;
+  	  if (typeof this.values === 'undefined') {
   	  	return res.send("404 values undefined");
   	  }
-  	  return res.send("200 HELLO WORLD");
+      HttpRequest.run('https://api.ret.io/reports?country=MX&province=DF', 'get', '').then(function (resolve) {
+        let jsonResolveGet = JSON.parse(resolve.body);
+        return res.send(jsonResolveGet);
+      }, function (err) {
+      });
   	}
   	catch(e) {
   	  return res.send("500 server error	");

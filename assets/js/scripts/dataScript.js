@@ -36,3 +36,15 @@ function makeRequest(url) {
     }
   }
 }
+
+$(document).ready(function(){
+  $('#notices').click(function() {
+    $("#descriptionContainer").load("../../templates/layoutNotice.html");
+  });
+  $('#reports').click(function() {
+    $("#descriptionContainer").load("../../templates/layoutReport.html");
+  });
+  $('#perfil').click(function() {
+    $("#descriptionContainer").load("skills.html");
+  });
+});

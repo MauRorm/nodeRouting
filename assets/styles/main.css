@@ -1,11 +1,12 @@
 body {
 	background-color: #81F79F;
 }
-
+/*begin table*/
 #dataColumn {
 	margin: 0 auto;
 	margin-top: 5%;
 }
+/*end table*/
 
 /*begin buttons*/
 .buttonContainer {
@@ -15,8 +16,10 @@ body {
 	height: 5%;
 }
 
-button {
-	margin-top: 0%;
+#getButton {
+	float: left;
+	top: 0px;					/*Siempre usas top con position absoluto, fixed o relative*/
+	position: absolute;			/*es en pixeles top*/
 	margin-top: 15%;
 	background-color: #FFFAAA;
 	border-radius: 2px;
@@ -25,14 +28,23 @@ button {
 	padding: 2px;
 }
 
-button:hover {
+#updateButton {
+	float: left;
+	top: 0px;					/*Siempre usas top con position absoluto, fixed o relative*/
+	position: absolute;			/*es en pixeles top*/
+	margin-top: 20%;
 	background-color: #FFFAAA;
+	border-radius: 2px;
+	border-width: 2px;
+	border-color: blue;
+	padding: 2px;
+}
+
+button:hover {
+	background-color: white;
 }
 /*end buttons*/
 
-.getButton:hover {
-	background-color: #FFFAFF;
-}
 /*begin fixed menu*/
 nav {
 	position: fixed;
@@ -66,3 +78,10 @@ li a:hover {
     color: #00BDFF;
 }
 /*end fixed menu*/
+
+/*begin notice*/
+#holo {
+	margin: 0 auto;
+	margin-top: 20%;
+}
+/*end notice*/

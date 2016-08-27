@@ -36,8 +36,8 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'GET /report': 'HandlerController.getReportData'
-
+  'GET /report': 'HandlerController.getReportData',
+  'GET /rss': 'HandlerController.getRss'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

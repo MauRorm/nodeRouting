@@ -30,12 +30,44 @@ function makeRequest(url) {
           srtHtml += '<td>' + respuesta.reports[i].country + '</td>';
           srtHtml += '</tr>'
         }
-        console.log("html value: ", srtHtml);
         document.getElementById('dataColumn').innerHTML = srtHtml;
       }
     }
   }
 }
+
+function getRss(url) {
+  if(window.XMLHttpRequest) {
+    var peticion_http = new XMLHttpRequest();
+  }
+  else if(window.ActiveXObject) {
+    var peticion_http = new ActiveXObject("Microsoft.XMLHTTP");  //soporte para explorer
+  }
+  var url = 'http://localhost:1337/rss';
+  peticion_http.onreadystatechange = responseData;
+  peticion_http.open('GET', url, true);
+  peticion_http.send(null);
+ 
+  function responseData() {
+    if(peticion_http.readyState === 4) {
+      if(peticion_http.status === 200) {
+        var respuesta = JSON.parse(peticion_http.responseText);
+        console.log(respuesta[0].title);
+        var i = 0;
+        var srtHtml = [];
+        for (i; i < respuesta.length; i++) {
+          srtHtml[i] = '<h3>' + respuesta[i].title + '</h3>'+
+          '<span>' + respuesta[i].content + '</span>';
+        }
+        document.getElementById('col_izqda').innerHTML = srtHtml[0];
+        document.getElementById('col_centr').innerHTML = srtHtml[1];
+        document.getElementById('col_drcha').innerHTML = srtHtml[2];
+      }
+    }
+  }
+}
+
+
 
 $(document).ready(function(){
   $('#notices').click(function() {

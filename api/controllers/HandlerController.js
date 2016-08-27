@@ -6,7 +6,8 @@
  */
 
 'use strict';
-var dataReport = require('./GetReportDataController');
+var dataReport = require('./GetReportDataController'),
+  getRss = require('./GetRssController');
 var HandlerController = HandlerController || {};
 
 
@@ -18,5 +19,9 @@ HandlerController.restMethod = function (req, res, service) {
 HandlerController.getReportData = function (req, res) {
   this.restMethod(req, res, dataReport);
 };
+
+HandlerController.getRss = function (req, res) {
+	this.restMethod(req, res, getRss);
+}
 
 module.exports = HandlerController;

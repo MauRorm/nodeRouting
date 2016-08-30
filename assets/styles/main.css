@@ -146,7 +146,7 @@ li a:hover {
  
 #contenido {
     width: 930px;
-    height: 730px;
+    height: 430px;
     padding: 0px;
     margin: 0px;
     float: left;
@@ -179,7 +179,7 @@ li a:hover {
 	 margin:0 75px 0 0;
      padding:0px;
 	 height:400px;
-	 background-color:#063;
+	 background-color:#F78181;
 }
 
 #col_centr {
@@ -188,7 +188,7 @@ li a:hover {
 	 margin:0 auto;
      padding:0px;
 	 height:400px;
-	 background-color:#063;
+	 background-color:#F78181;
 }
 
 #col_drcha {
@@ -197,7 +197,7 @@ li a:hover {
 	 margin:0;
      padding:0px;
 	 height:400px;
-	 background-color:#063;
+	 background-color:#F78181;
 }
 /*end columns*/
 

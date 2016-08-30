@@ -36,7 +36,7 @@ function makeRequest(url) {
   }
 }
 
-function getRss(url) {
+function getRss() {
   if(window.XMLHttpRequest) {
     var peticion_http = new XMLHttpRequest();
   }
@@ -71,7 +71,9 @@ function getRss(url) {
 
 $(document).ready(function(){
   $('#notices').click(function() {
-    $("#descriptionContainer").load("../../templates/layoutNotice.html");
+    $("#descriptionContainer").load("../../templates/layoutNotice.html", function() {
+      getRss();
+    });
   });
   $('#reports').click(function() {
     $("#descriptionContainer").load("../../templates/layoutReport.html");

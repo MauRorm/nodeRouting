@@ -67,17 +67,17 @@ function getRss() {
   }
 }
 
-
-
 $(document).ready(function(){
   $('#notices').click(function() {
     $("#descriptionContainer").load("../../templates/layoutNotice.html", function() {
       getRss();
     });
   });
+
   $('#reports').click(function() {
     $("#descriptionContainer").load("../../templates/layoutReport.html");
   });
+  
   $('#perfil').click(function() {
     $("#descriptionContainer").load("skills.html");
   });

@@ -47,6 +47,10 @@ table {
 body {
 	background-color: #81F79F;
 }
+
+#descriptionContainer {
+	width: 100%;
+}
 /*begin table*/
 #dataColumn {
 	margin: 0 auto;
@@ -94,7 +98,8 @@ button:hover {
 /*begin fixed menu*/
 nav {
 	position: fixed;
-	width: 98%;
+	width: 96%;
+	margin-left: 2%;
 	z-index: 1;
 	top: 0px;
 }
@@ -128,9 +133,8 @@ li a:hover {
 /*begin notice section*/
 #containerGlobal {
 	top: 50px;
-	position: absolute;
+	position: relative;
     width: 930px;
-    padding: 0 35px;
     margin: 0 auto;
     background-color: white;
 }

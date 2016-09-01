@@ -58,6 +58,24 @@ function getRss() {
         var respuesta = JSON.parse(peticion_http.responseText);
         console.log(respuesta[0].title);
         var i = 0;
+        //
+        var hilera = document.createElement("div");
+        hilera.className = 'columnas';
+
+        var uno = document.createElement("div");
+        uno.className = 'col_izqda';
+
+        var dos = document.createElement("div");
+        dos.className = 'col_centr';
+
+        var tres = document.createElement("div");
+        tres.className = 'col_drcha';
+
+        hilera.appendChild(uno);
+        hilera.appendChild(dos);
+        hilera.appendChild(tres);
+        document.getElementById('contenido').appendChild(hilera);
+        //
         var srtHtml = [];
         for (i; i < respuesta.length; i++) {
           srtHtml[i] = '<h3>' + respuesta[i].title + '</h3>'+

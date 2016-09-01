@@ -150,11 +150,11 @@ li a:hover {
  
 #contenido {
     width: 930px;
-    height: 430px;
     padding: 0px;
     margin: 0px;
     float: left;
     background: #d5f0f0;
+    display: inline-block;
 }
  
 #pie {

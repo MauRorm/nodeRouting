@@ -171,13 +171,13 @@ li a:hover {
 /* ------------------------------------ */
 /*				COLUMNAS				*/
 /* ------------------------------------ */
-#columnas {
+.columnas {
      width:930px;
 	 margin:20px 0;
      padding:0px;
 }
 
-#col_izqda {
+.col_izqda {
      width:221px;
 	 float:left;
 	 margin:0 75px 0 0;
@@ -186,7 +186,7 @@ li a:hover {
 	 background-color:#F78181;
 }
 
-#col_centr {
+.col_centr {
      width:326px;
 	 float:left;
 	 margin:0 auto;
@@ -195,7 +195,7 @@ li a:hover {
 	 background-color:#F78181;
 }
 
-#col_drcha {
+.col_drcha {
      width:240px;
 	 float:right;
 	 margin:0;
@@ -203,10 +203,9 @@ li a:hover {
 	 height:400px;
 	 background-color:#F78181;
 }
-/*end columns*/
 
-/*begin img column*/
-#columnas img{
+.columnas img {
 	width: 100%;
 }
-/*end img column*/
+/*end columns*/
+

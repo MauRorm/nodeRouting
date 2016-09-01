@@ -1,8 +1,8 @@
 function makeRequest(url) {
-  if(window.XMLHttpRequest) {
+  if(typeof window.XMLHttpRequest !== 'undefined') {
     var peticion_http = new XMLHttpRequest();
   }
-  else if(window.ActiveXObject) {
+  else if(typeof window.ActiveXObject !== 'undefined') {
     var peticion_http = new ActiveXObject("Microsoft.XMLHTTP");  //soporte para explorer
   }
   var url = 'http://localhost:1337/report';
@@ -12,11 +12,12 @@ function makeRequest(url) {
  
   function responseData() {
     if(peticion_http.readyState === 4) {
+      var srtHtml = new String();
       if(peticion_http.status === 200) {
         var respuesta = JSON.parse(peticion_http.responseText);
         console.log(respuesta.reports[0]);
         var i = 0;
-        var srtHtml = '<tr>'+
+        srtHtml = '<tr>'+
         '<th>Categoria</th>'+
         '<th>Fecha</th>'+
         '<th>Usuario</th>'+
@@ -31,16 +32,19 @@ function makeRequest(url) {
           srtHtml += '</tr>'
         }
         document.getElementById('dataColumn').innerHTML = srtHtml;
+      } else {
+        srtHtml = 'Reports not founds';
+        document.getElementById('dataColumn').innerHTML = srtHtml;
       }
     }
   }
 }
 
 function getRss() {
-  if(window.XMLHttpRequest) {
+  if(typeof window.XMLHttpRequest !== 'undefined') {
     var peticion_http = new XMLHttpRequest();
   }
-  else if(window.ActiveXObject) {
+  else if(typeof window.ActiveXObject !== 'undefined') {
     var peticion_http = new ActiveXObject("Microsoft.XMLHTTP");  //soporte para explorer
   }
   var url = 'http://localhost:1337/rss';
@@ -62,6 +66,11 @@ function getRss() {
         document.getElementById('col_izqda').innerHTML = srtHtml[0];
         document.getElementById('col_centr').innerHTML = srtHtml[1];
         document.getElementById('col_drcha').innerHTML = srtHtml[2];
+      } else {
+        srtHtml[0] = 'Notice not found';
+        document.getElementById('col_izqda').innerHTML = srtHtml[0];
+        document.getElementById('col_centr').innerHTML = srtHtml[0];
+        document.getElementById('col_drcha').innerHTML = srtHtml[0];
       }
     }
   }

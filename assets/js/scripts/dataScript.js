@@ -58,7 +58,9 @@ function getRss() {
         var respuesta = JSON.parse(peticion_http.responseText);
         console.log(respuesta[0].title);
         var i = 0;
+        var y = 0;
         //
+        for(y; y < respuesta.length; y++) {
         var hilera = document.createElement("div");
         hilera.className = 'columnas';
 
@@ -70,20 +72,20 @@ function getRss() {
 
         var tres = document.createElement("div");
         tres.className = 'col_drcha';
-
         hilera.appendChild(uno);
         hilera.appendChild(dos);
         hilera.appendChild(tres);
         document.getElementById('contenido').appendChild(hilera);
+        }
         //
         var srtHtml = [];
         for (i; i < respuesta.length; i++) {
           srtHtml[i] = '<h3>' + respuesta[i].title + '</h3>'+
           '<span>' + respuesta[i].content + '</span>';
+        document.getElementsByClassName('col_izqda')[i].innerHTML = srtHtml[i];
+        document.getElementsByClassName('col_centr')[i].innerHTML = srtHtml[i];
+        document.getElementsByClassName('col_drcha')[i].innerHTML = srtHtml[i];
         }
-        document.getElementsByClassName('col_izqda')[0].innerHTML = srtHtml[0];
-        document.getElementsByClassName('col_centr')[0].innerHTML = srtHtml[1];
-        document.getElementsByClassName('col_drcha')[0].innerHTML = srtHtml[2];
       } else {
         srtHtml[0] = 'Notice not found';
         document.getElementsByClassName('col_izqda')[0].innerHTML = srtHtml[0];

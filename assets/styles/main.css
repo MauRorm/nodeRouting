@@ -154,7 +154,7 @@ li a:hover {
     margin: 0px;
     float: left;
     background: #d5f0f0;
-    display: inline-block;
+    display: block;
 }
  
 #pie {
@@ -175,6 +175,7 @@ li a:hover {
      width:930px;
 	 margin:20px 0;
      padding:0px;
+     display: inline-block;
 }
 
 .col_izqda {

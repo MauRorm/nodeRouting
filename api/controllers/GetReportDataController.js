@@ -8,7 +8,7 @@
 
 var HttpRequest = require('./HTTPRequest');
 
-var dataReport = {
+let dataReport = {
   run: function (req, res, values) {
   	try {
       this.values = values;

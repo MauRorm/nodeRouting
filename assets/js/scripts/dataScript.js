@@ -1,16 +1,21 @@
-function makeRequest(url) {
+var peticion_http = {};
+
+function ajaxRequest(callback, ajaxUrl) {
   if(typeof window.XMLHttpRequest !== 'undefined') {
-    var peticion_http = new XMLHttpRequest();
+    peticion_http = new XMLHttpRequest();
   }
   else if(typeof window.ActiveXObject !== 'undefined') {
-    var peticion_http = new ActiveXObject("Microsoft.XMLHTTP");  //soporte para explorer
+    peticion_http = new ActiveXObject("Microsoft.XMLHTTP");  //soporte para explorer
   }
-  var url = 'http://127.0.0.1:1337/report';
-  peticion_http.onreadystatechange = responseData;
-  peticion_http.open('GET', url, true);
+  peticion_http.onreadystatechange = callback;
+  peticion_http.open('GET', ajaxUrl, true);
   peticion_http.send(null);
- 
-  function responseData() {
+}
+
+function makeRequest() {
+  const url = 'http://127.0.0.1:1337/report';
+  ajaxRequest(responseReportData, url);
+  function responseReportData() {
     if(peticion_http.readyState === 4) {
       var srtHtml = new String();
       if(peticion_http.status === 200) {
@@ -41,15 +46,16 @@ function makeRequest(url) {
 }
 
 function getRss() {
+  var peticion_http = {};
   if(typeof window.XMLHttpRequest !== 'undefined') {
-    var peticion_http = new XMLHttpRequest();
+    peticion_http = new XMLHttpRequest();
   }
   else if(typeof window.ActiveXObject !== 'undefined') {
-    var peticion_http = new ActiveXObject("Microsoft.XMLHTTP");  //soporte para explorer
+    peticion_http = new ActiveXObject("Microsoft.XMLHTTP");  //soporte para explorer
   }
-  var url = 'http://127.0.0.1:1337/rss';
+  const rssUrl = 'http://127.0.0.1:1337/rss';
   peticion_http.onreadystatechange = responseData;
-  peticion_http.open('GET', url, true);
+  peticion_http.open('GET', rssUrl, true);
   peticion_http.send(null);
  
   function responseData() {
@@ -82,15 +88,15 @@ function getRss() {
         for (i; i < respuesta.length; i++) {
           srtHtml[i] = '<h3>' + respuesta[i].title + '</h3>'+
           '<span>' + respuesta[i].content + '</span>';
-        document.getElementsByClassName('col_izqda')[i].innerHTML = srtHtml[i];
-        document.getElementsByClassName('col_centr')[i].innerHTML = srtHtml[i];
-        document.getElementsByClassName('col_drcha')[i].innerHTML = srtHtml[i];
+          document.getElementsByClassName('col_izqda')[i].innerHTML = srtHtml[i];
+          document.getElementsByClassName('col_centr')[i].innerHTML = srtHtml[i];
+          document.getElementsByClassName('col_drcha')[i].innerHTML = srtHtml[i];
         }
       } else {
-        srtHtml[0] = 'Notice not found';
-        document.getElementsByClassName('col_izqda')[0].innerHTML = srtHtml[0];
-        document.getElementsByClassName('col_centr')[0].innerHTML = srtHtml[0];
-        document.getElementsByClassName('col_drcha')[0].innerHTML = srtHtml[0];
+          srtHtml[0] = 'Notice not found';
+          document.getElementsByClassName('col_izqda')[0].innerHTML = srtHtml[0];
+          document.getElementsByClassName('col_centr')[0].innerHTML = srtHtml[0];
+          document.getElementsByClassName('col_drcha')[0].innerHTML = srtHtml[0];
       }
     }
   }

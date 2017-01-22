@@ -6,10 +6,10 @@
  */
 'use strict';
 
-var HttpRequest = require('./HTTPRequest');
-var feed = require('feed-read');
+let HttpRequest = require('./HTTPRequest');
+let feed = require('feed-read');
 
-var getRss = {
+let getRss = {
   run: function (req, res, values) {
   	try {
       feed('http://archivo.eluniversal.com.mx/rss/universalmxm.xml', function(err, articles) {
